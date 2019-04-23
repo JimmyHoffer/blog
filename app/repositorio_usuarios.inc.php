@@ -110,9 +110,9 @@ class repositorio_usuarios {
 
                 if(count($resultado)){
 
-                    $email_existe=true; 
+                    $email_existe = true; 
                 }else{
-                    $email_existe=false;
+                    $email_existe = false;
                 }
             }catch(PDOException $exc){
 
@@ -120,6 +120,29 @@ class repositorio_usuarios {
             }
         }
         return $email_existe;
+    }
+    public static function obtener_usuario_por_email($conexion, $email){
+        $usuario=null;
+
+        if (isset($conexion)){
+            try {
+
+               $sql= " SELECT * FROM usuarios WHERE email= :email"; 
+               $sentencia=$conexion->prepare($sql);
+               $sentencia->bindParam(':email', $email, PDO::PARAM_STR);
+               $sentencia->execute();
+               $resultado = $sentencia->fech(); 
+               if (!empty($resultado)){
+                    $usuario = new Usuario($resultado['id'], $resultado['nombre'], $resultado['email'], $resultado['password'], $resultado['fecha_registro'], $resultado['activo']);
+               }
+
+            } catch (PDOException $ex) {
+                print "ERROR ".$ex->getMessage();
+            }
+
+        }
+        return $usuario; //si isuario esta vacio lo retorno como null
+
     }
 
 }

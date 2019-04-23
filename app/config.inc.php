@@ -6,7 +6,9 @@ define('NOMBRE_SERVIDOR', 'localhost');
 define('NOMBRE_USUARIO', 'root');
 define('PASSWORD', '');
 define('NOMBRE_BD', 'blog');
+
 //rutas de la web
+
 define("SERVIDOR", "http://localhost/blog");
 define("RUTA_REGISTRO", SERVIDOR."/Registro.php");
 define("RUTA_REGISTRO_CORRECTO", SERVIDOR."/registro-correcto.php");
