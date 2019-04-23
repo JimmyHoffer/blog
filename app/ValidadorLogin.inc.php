@@ -37,7 +37,7 @@ class ValidadorLogin{
     }
     public function mostrar_error(){
     	if($this->error !==''){
-    		echo "<<br><div class='alert alert-danger' rol='alert'>";
+    		echo "<br><div class='alert alert-danger' rol='alert'>";
     		echo $this->error;
     		echo "</div><br>";
     	}

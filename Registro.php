@@ -21,7 +21,7 @@ if (isset($_POST['enviar'])){
      
        if ($usuario_insertado){
            //redirigir al 
-        Redireccion::redirigir(RUTA_REGISTRO_CORRECTO . '/'.$usuario->getNombre());
+        Redireccion::redirigir(RUTA_REGISTRO_CORRECTO . '?nombre='.$usuario->getNombre());
        }
    }
     Conexion::cerrar_conexion();

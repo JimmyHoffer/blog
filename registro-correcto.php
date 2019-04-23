@@ -28,9 +28,9 @@ include_once 'plantillas/navbar.inc.php';
                     <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Registro correcto
                 </div>
                 <div class="panel-body text-center">
-                    <p>¡Gracias por registrarte! <b><?php echo $nombre ?></b></p>
+                    <p>¡Gracias por registrarte! <b><?php echo $nombre; ?></b></p>
                     <br>
-                    <p><a href="<?php echo RUTA_LOGIN ?>"></a></p>
+                    <p><a href="<?php echo RUTA_LOGIN ?>">Iniciar sesión</a></p>
                 </div>
             </div>
         </div>

@@ -50,6 +50,7 @@ class repositorio_usuarios {
 
         if (isset($conexion)) {
             try {
+                include_once 'app/usuario.inc.php.php';
                 $sql = "INSERT INTO usuarios(nombre, email, password, fecha_registro, activo) VALUES( :nombre, :email, :password, NOW(), 0)"; 
 
                 $sentencia = $conexion -> prepare($sql);
@@ -126,12 +127,12 @@ class repositorio_usuarios {
 
         if (isset($conexion)){
             try {
-
+               include_once 'usuario.inc.php.php';
                $sql= " SELECT * FROM usuarios WHERE email= :email"; 
                $sentencia=$conexion->prepare($sql);
                $sentencia->bindParam(':email', $email, PDO::PARAM_STR);
                $sentencia->execute();
-               $resultado = $sentencia->fech(); 
+               $resultado = $sentencia->fetch(); 
                if (!empty($resultado)){
                     $usuario = new Usuario($resultado['id'], $resultado['nombre'], $resultado['email'], $resultado['password'], $resultado['fecha_registro'], $resultado['activo']);
                }
